@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+img, video {
+  @apply max-w-full h-auto;
+}
+
+img, svg, video, canvas, audio, iframe, embed, object {
+  @apply block align-middle;
+}
