@@ -1,20 +1,38 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-const PlayControls = () => {
+const PlayControls: React.FC = () => {
+  const [speed, setSpeed] = useState<number>(1);
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+
+  const handleSpeedChange = () => {
+    setSpeed((prev) => (prev === 3 ? 1 : prev + 1));
+  }
+
+  const togglePlay = () => {
+    setIsPlaying(!isPlaying);
+  };
+
   return (
     <div className='mb-5 flex items-center justify-between'>
-      <button className='inline-flex h-10 w-10 items-center justify-center whitespace-nowrap rounded-md text-sm leading-5 font-medium transition duration-150 ease-in-out'>
-        <span className='text-lg text-customPurple-500'>1x</span>
+      <button className='inline-flex h-10 w-10 items-center justify-center whitespace-nowrap rounded-md text-sm leading-5 font-medium transition duration-150 ease-in-out' onClick={handleSpeedChange}>
+        <span className='text-lg text-customPurple-500'>{speed}x</span>
       </button>
       <button className='inline-flex h-10 w-10 items-center justify-center whitespace-nowrap rounded-md text-sm leading-5 font-medium transition duration-150 ease-in-out'>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-customPurple-100">
           <path d="M9.195 18.44c1.25.714 2.805-.189 2.805-1.629v-2.34l6.945 3.968c1.25.715 2.805-.188 2.805-1.628V8.69c0-1.44-1.555-2.343-2.805-1.628L12 11.029v-2.34c0-1.44-1.555-2.343-2.805-1.628l-7.108 4.061c-1.26.72-1.26 2.536 0 3.256l7.108 4.061Z" />
         </svg>
       </button>
-      <button className="inline-flex h-10 w-10 items-center justify-center whitespace-nowrap rounded-md text-sm leading-5 font-medium transition duration-150 ease-in-out outline outline-1.5 outline-customPurple-500 focus:outline-offset-2">
+      <button className="inline-flex h-10 w-10 items-center justify-center whitespace-nowrap rounded-md text-sm leading-5 font-medium transition duration-150 ease-in-out outline outline-1.5 outline-customPurple-500 focus:outline-offset-2" onClick={togglePlay}>
+      { isPlaying ? (
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-customPurple-500">
-          <path fillRule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z" clipRule="evenodd" />
+        <path fillRule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z" clipRule="evenodd" />
+      </svg>
+       ) : (
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6 text-customPurple-500">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25v13.5m-7.5-13.5v13.5" />
         </svg>
+       ) }
+        
       </button>
 
       <button className='inline-flex h-10 w-10 items-center justify-center whitespace-nowrap rounded-md text-sm leading-5 font-medium transition duration-150 ease-in-out'>

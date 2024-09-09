@@ -4,7 +4,7 @@ import SongTitle from './SongTitle'
 import PlayControls from './PlayControls'
 import VolumeControls from './VolumeControls'
 
-const CurrentlyPlaying = () => {
+const CurrentlyPlaying: React.FC = () => {
   return (
     <div className='p-6 md:w-1/2'>
       <CoverArt />
