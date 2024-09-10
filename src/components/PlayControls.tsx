@@ -13,7 +13,7 @@ const PlayControls: React.FC<PlayControlsProps> = ({
   onPrev, onNext, isFirstSong, isLastSong, onShuffleToggle, isShuffle
 }) => {
   const [speed, setSpeed] = useState<number>(1);
-  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const [isPlaying, setIsPlaying] = useState<boolean>(true);
 
 
   const handleSpeedChange = () => {
@@ -29,13 +29,13 @@ const PlayControls: React.FC<PlayControlsProps> = ({
     <div className='mb-5 flex items-center justify-between'>
       {/* Speed Button */}
       <button 
-      className='inline-flex h-10 w-10 items-center justify-center whitespace-nowrap rounded-md text-sm leading-5 font-medium transition duration-150 ease-in-out' 
+      className='inline-flex h-10 w-10 items-center justify-center whitespace-nowrap rounded-md text-sm leading-5 font-medium transition-transform duration-200 ease-in-out transform hover:scale-110' 
       onClick={handleSpeedChange}>
         <span className='text-lg text-customPurple-500'>{speed}x</span>
       </button>
       {/* Prev Button */}
       <button 
-      className={`inline-flex h-10 w-10 items-center justify-center rounded-md text-sm leading-5 font-medium transition duration-150 ease-in-out ${isFirstSong ? 'text-customPurple-100' : 'text-customPurple-500'}`}
+      className={`inline-flex h-10 w-10 items-center justify-center rounded-md text-sm leading-5 font-medium transition-transform duration-200 ease-in-out transform hover:scale-110 ${isFirstSong ? 'text-customPurple-100' : 'text-customPurple-500'}`}
       onClick={onPrev}
       disabled={isFirstSong}
       >
@@ -45,7 +45,7 @@ const PlayControls: React.FC<PlayControlsProps> = ({
       </button>
       {/* Play/Pause Button */}
       <button 
-      className="inline-flex h-10 w-10 items-center justify-center whitespace-nowrap rounded-md text-sm leading-5 font-medium transition duration-150 ease-in-out outline outline-1.5 outline-customPurple-500 focus:outline-offset-2" 
+      className="inline-flex h-10 w-10 items-center justify-center whitespace-nowrap rounded-md text-sm leading-5 font-medium transition-transform duration-200 ease-in-out transform hover:scale-105 outline outline-1.5 outline-customPurple-500 focus:outline" 
       onClick={togglePlay}
       >
       { isPlaying ? (
@@ -61,7 +61,7 @@ const PlayControls: React.FC<PlayControlsProps> = ({
       </button>
        {/* Next Button */}
       <button 
-      className={`inline-flex h-10 w-10 items-center justify-center rounded-md text-sm leading-5 font-medium transition duration-150 ease-in-out ${isLastSong ? 'text-customPurple-100' : 'text-customPurple-500'}`}
+      className={`inline-flex h-10 w-10 items-center justify-center rounded-md text-sm leading-5 font-medium transition-transform duration-200 ease-in-out transform hover:scale-110 ${isLastSong ? 'text-customPurple-100' : 'text-customPurple-500'}`}
       onClick={onNext}
       disabled={isLastSong}
       >
@@ -71,7 +71,7 @@ const PlayControls: React.FC<PlayControlsProps> = ({
       </button>
       {/* Shuffle Button */}
       <button 
-      className={`inline-flex h-10 w-10 items-center justify-center whitespace-nowrap rounded-md text-sm leading-5 font-medium transition duration-150 ease-in-out ${isShuffle ? 'text-green-500' : 'text-customPurple-500'}`}
+      className={`inline-flex h-10 w-10 items-center justify-center whitespace-nowrap rounded-md text-sm leading-5 font-medium transition-transform duration-200 ease-in-out transform hover:scale-110 ${isShuffle ? 'text-green-500' : 'text-customPurple-500'}`}
       onClick={onShuffleToggle}
       >
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
