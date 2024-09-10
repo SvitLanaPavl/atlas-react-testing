@@ -1,38 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import CurrentlyPlaying from './components/CurrentlyPlaying';
 import Playlist from './components/Playlist';
+import { usePlaylistData } from './hooks/UsePlayListData';
 
-interface Song {
-  title: string;
-  artist: string;
-  duration: string;
-  cover: string;
-}
+
 
 const MusicPlayer: React.FC = () => {
-  const [playlist, setPlaylist] = useState<Song[]>([]);
+  const {data: playlist, loading} = usePlaylistData();
   const [currentSongIndex, setCurrentSongIndex] = useState<number>(0);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isShuffle, setIsShuffle] = useState<boolean>(false);
   const [songHistory, setSongHistory] = useState<number[]>([]); // Song history to track previous songs
 
-  // Fetch playlist data from the API
-  useEffect(() => {
-    fetch('https://raw.githubusercontent.com/atlas-jswank/atlas-music-player-api/main/playlist')
-      .then((response) => response.json())
-      .then((data: Song[]) => {
-        setPlaylist(data);
-        setCurrentSongIndex(0);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        console.error('Error fetching playlist: ', error);
-        setIsLoading(false);
-      });
-  }, []);
+  
 
   const handleSongChange = (index: number) => {
     if (index >= 0 && index < playlist.length) {
+      setSongHistory((prevHistory) => [...prevHistory, currentSongIndex]);
       setCurrentSongIndex(index);
     }
   };
@@ -49,12 +32,8 @@ const MusicPlayer: React.FC = () => {
       setSongHistory((prevHistory) => [...prevHistory, currentSongIndex]);
       setCurrentSongIndex(randomIndex);
     } else {
-      // Normal mode: move to the next song and add current song to history
-      if (currentSongIndex + 1 < playlist.length) {
-        setSongHistory((prevHistory) => [...prevHistory, currentSongIndex]);
         setCurrentSongIndex(currentSongIndex + 1);
       }
-    }
   };
 
   const handlePrevSong = () => {
@@ -63,7 +42,7 @@ const MusicPlayer: React.FC = () => {
       const lastSongIndex = songHistory[songHistory.length - 1];
       setSongHistory((prevHistory) => prevHistory.slice(0, -1)); // Remove last entry from history
       setCurrentSongIndex(lastSongIndex);
-    } else if (!isShuffle && currentSongIndex > 0) {
+    } else {
       // In normal mode, go back one song
       setCurrentSongIndex(currentSongIndex - 1);
     }
@@ -71,7 +50,7 @@ const MusicPlayer: React.FC = () => {
 
   return (
     <div className="mx-auto flex h-full w-full max-w-5xl flex-col overflow-hidden rounded-lg shadow-lg md:flex-row">
-      {isLoading ? (
+      {loading ? (
         <p>Loading playlist...</p>
       ) : (
         <>
@@ -89,7 +68,7 @@ const MusicPlayer: React.FC = () => {
           <Playlist
             playlist={playlist}
             currentSongIndex={currentSongIndex}
-            onSongSelect={(index) => handleSongChange(index)}
+            onSongSelect={handleSongChange}
           />
         </>
       )}
