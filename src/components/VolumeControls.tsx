@@ -1,28 +1,48 @@
 import React, { useState } from 'react';
 import volume from '../assets/volume.svg';
-import volume_disabled from '../assets/volume_dis.svg'
+import volume_disabled from '../assets/volume_dis.svg';
+import './VolumeControls.css'; // Import the CSS file
 
 const VolumeControls: React.FC = () => {
   const [volumeValue, setVolumeValue] = useState<number>(50);
   const [isMuted, setIsMuted] = useState<boolean>(false);
 
   const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setVolumeValue(Number(e.target.value));
+    const newVolume = Number(e.target.value);
+
+    // Unmute if user interacts with the slider when muted
+    if (isMuted && newVolume > 0) {
+      setIsMuted(false);
+    }
+
+    setVolumeValue(newVolume);
+
+    // Auto mute when slider reaches 0
+    if (newVolume === 0) {
+      setIsMuted(true);
+    }
   };
 
   const toggleMute = () => {
     setIsMuted(!isMuted);
+    if (isMuted) {
+      setVolumeValue(50); // Restore volume to previous level when unmuted
+    } else {
+      setVolumeValue(0); // Set volume to 0 when muted
+    }
   };
 
   return (
     <div className="flex items-center space-x-2">
-      {/* Volume icon */}
+      {/* Volume Icon */}
       <button onClick={toggleMute}>
-        <img src={isMuted ? volume_disabled : volume} 
-          className="w-5 h-5 block align-middle" 
-          alt={isMuted ? 'Volume disabled icon' : 'Volume icon'} 
+        <img
+          src={isMuted || volumeValue === 0 ? volume_disabled : volume}
+          className="w-5 h-5 block align-middle"
+          alt={isMuted || volumeValue === 0 ? 'Volume disabled icon' : 'Volume icon'}
         />
       </button>
+
       <div className="flex items-center w-full">
         {/* Volume Slider */}
         <input
@@ -31,13 +51,14 @@ const VolumeControls: React.FC = () => {
           max="100"
           value={isMuted ? 0 : volumeValue}
           onChange={handleVolumeChange}
-          className="w-full h-2 rounded-lg appearance-none cursor-pointer focus:outline-none accent-customPurple-500"
-          /*This inline style was necessary since tailwind does not support dynamic background - 
-          I had to overwrite default type='range' with my colors*/
+          className={`w-full h-2 rounded-lg appearance-none cursor-pointer focus:outline-none volume-slider ${
+            isMuted ? 'muted' : ''
+          }`}
           style={{
-            background: `linear-gradient(to right, #53389E ${volumeValue}%, #F4EBFF ${volumeValue}%)`,
+            background: isMuted
+              ? '#F4EBFF'
+              : `linear-gradient(to right, #53389E ${volumeValue}%, #F4EBFF ${volumeValue}%)`, // Dynamic gradient
           }}
-          disabled={isMuted}
         />
       </div>
     </div>

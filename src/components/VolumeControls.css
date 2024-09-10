@@ -1,0 +1,26 @@
+/* Tailwind CSS doesn't provide direct utility classes
+ for customizing the accent color of input elements like sliders (range inputs) */
+ input[type='range']::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #53389E;
+  cursor: pointer;
+}
+
+input[type='range'].muted::-webkit-slider-thumb {
+  background-color: #F4EBFF;
+}
+
+input[type='range']::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #53389E;
+  cursor: pointer;
+}
+
+input[type='range'].muted::-moz-range-thumb {
+  background-color: #F4EBFF;
+}
