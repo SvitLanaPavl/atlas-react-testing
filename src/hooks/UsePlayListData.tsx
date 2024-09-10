@@ -16,7 +16,7 @@ export const usePlaylistData = () => {
       setLoading(true);
 
       // Simulate a delay
-      await new Promise((resolve) => setTimeout(resolve, 3000)); // 3-second delay
+      await new Promise((resolve) => setTimeout(resolve, 1500));
 
       fetch('https://raw.githubusercontent.com/atlas-jswank/atlas-music-player-api/main/playlist')
         .then((response) => response.json())

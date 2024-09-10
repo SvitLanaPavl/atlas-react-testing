@@ -47,7 +47,7 @@ const MusicPlayer: React.FC = () => {
   };
 
   return (
-    <div className="mx-auto flex h-full w-full max-w-5xl flex-col overflow-hidden rounded-lg shadow-lg md:flex-row">
+    <div className="bg-customPurple-25 mx-auto flex h-full w-full max-w-5xl flex-col overflow-hidden rounded-lg shadow-lg md:flex-row">
       {/* Left side - Currently Playing */}
       {loading ? (
         <CurrentLoadingSkeleton />

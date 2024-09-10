@@ -8,6 +8,7 @@ export default {
     extend: {
       colors: {
         customPurple: {
+          25: 'rgba(244, 235, 255, 0.2)',
           50: '#F4EBFF',
           100: '#D6BBFB',
           200: '#9E77ED',
