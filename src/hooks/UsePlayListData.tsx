@@ -1,32 +1,36 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
-// Define the Song interface (can also import if you have it in another file)
-interface Song {
+export interface Song {
   title: string;
   artist: string;
   duration: string;
   cover: string;
 }
 
-// Create the usePlaylistData hook
 export const usePlaylistData = () => {
   const [data, setData] = useState<Song[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    const fetchPlaylistData = async () => {
-      try {
-        const response = await fetch('https://raw.githubusercontent.com/atlas-jswank/atlas-music-player-api/main/playlist');
-        const result: Song[] = await response.json();
-        setData(result);
-      } catch (error) {
-        console.error('Error fetching playlist:', error);
-      } finally {
-        setLoading(false);
-      }
+    const fetchPlaylist = async () => {
+      setLoading(true);
+
+      // Simulate a delay
+      await new Promise((resolve) => setTimeout(resolve, 3000)); // 3-second delay
+
+      fetch('https://raw.githubusercontent.com/atlas-jswank/atlas-music-player-api/main/playlist')
+        .then((response) => response.json())
+        .then((data: Song[]) => {
+          setData(data);
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.error('Error fetching playlist:', error);
+          setLoading(false);
+        });
     };
 
-    fetchPlaylistData();
+    fetchPlaylist();
   }, []);
 
   return { data, loading };

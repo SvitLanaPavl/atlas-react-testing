@@ -2,16 +2,14 @@ import React, { useState } from 'react';
 import CurrentlyPlaying from './components/CurrentlyPlaying';
 import Playlist from './components/Playlist';
 import { usePlaylistData } from './hooks/UsePlayListData';
-
-
+import CurrentLoadingSkeleton from './components/CurrentLoadingSkeleton';
+import PlaylistLoadingSkeleton from './components/PlaylistLoadingSkeleton';
 
 const MusicPlayer: React.FC = () => {
-  const {data: playlist, loading} = usePlaylistData();
+  const { data: playlist, loading } = usePlaylistData();
   const [currentSongIndex, setCurrentSongIndex] = useState<number>(0);
   const [isShuffle, setIsShuffle] = useState<boolean>(false);
   const [songHistory, setSongHistory] = useState<number[]>([]); // Song history to track previous songs
-
-  
 
   const handleSongChange = (index: number) => {
     if (index >= 0 && index < playlist.length) {
@@ -32,8 +30,8 @@ const MusicPlayer: React.FC = () => {
       setSongHistory((prevHistory) => [...prevHistory, currentSongIndex]);
       setCurrentSongIndex(randomIndex);
     } else {
-        setCurrentSongIndex(currentSongIndex + 1);
-      }
+      setCurrentSongIndex(currentSongIndex + 1);
+    }
   };
 
   const handlePrevSong = () => {
@@ -50,27 +48,34 @@ const MusicPlayer: React.FC = () => {
 
   return (
     <div className="mx-auto flex h-full w-full max-w-5xl flex-col overflow-hidden rounded-lg shadow-lg md:flex-row">
+      {/* Left side - Currently Playing */}
       {loading ? (
-        <p>Loading playlist...</p>
+        <CurrentLoadingSkeleton />
       ) : (
-        <>
-          {playlist.length > 0 && (
-            <CurrentlyPlaying
-              song={playlist[currentSongIndex]}
-              onPrev={handlePrevSong}
-              onNext={handleNextSong}
-              isFirstSong={currentSongIndex === 0}
-              isLastSong={currentSongIndex === playlist.length - 1}
-              onShuffleToggle={handleShuffleToggle}
-              isShuffle={isShuffle}
-            />
-          )}
+        playlist.length > 0 && (
+          <CurrentlyPlaying
+            song={playlist[currentSongIndex]}
+            onPrev={handlePrevSong}
+            onNext={handleNextSong}
+            isFirstSong={currentSongIndex === 0}
+            isLastSong={currentSongIndex === playlist.length - 1}
+            onShuffleToggle={handleShuffleToggle}
+            isShuffle={isShuffle}
+          />
+        )
+      )}
+
+      {/* Right side - Playlist */}
+      {loading ? (
+        <PlaylistLoadingSkeleton />
+      ) : (
+        playlist.length > 0 && (
           <Playlist
             playlist={playlist}
             currentSongIndex={currentSongIndex}
             onSongSelect={handleSongChange}
           />
-        </>
+        )
       )}
     </div>
   );
