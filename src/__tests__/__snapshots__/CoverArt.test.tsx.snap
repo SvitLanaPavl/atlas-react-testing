@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CoverArt renders correctly with valid image 1`] = `
+<div>
+  <div
+    class="relative mb-6 aspect-square"
+  >
+    <img
+      alt="placeholder image"
+      class="h-full w-full rounded-md aspect-[400/400] object-cover block align-middle"
+      src="https://raw.githubusercontent.com/atlas-jswank/atlas-music-player-api/main/images/albumn4.webp"
+    />
+  </div>
+</div>
+`;

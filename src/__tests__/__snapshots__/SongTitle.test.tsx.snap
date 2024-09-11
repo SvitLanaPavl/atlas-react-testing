@@ -1,0 +1,18 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Song title reders correctly 1`] = `
+<div>
+  <div>
+    <h2
+      class="mb-2 text-2xl leading-8 font-bold text-customPurple-600"
+    >
+      Painted in Blue
+    </h2>
+    <p
+      class="mb-4 text-customPurple-300"
+    >
+      Soul Canvas
+    </p>
+  </div>
+</div>
+`;

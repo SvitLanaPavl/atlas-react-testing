@@ -1,0 +1,57 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Playlist renders correctly when current 1`] = `
+<div>
+  <button
+    class="flex w-full justify-between items-center mb-1 cursor-pointer bg-customPurple-50 rounded-md hover:bg-customPurple-50 transition duration-150 ease-in-out rounded-md p-1"
+  >
+    <div
+      class="text-left"
+    >
+      <div
+        class="font-medium  text-customPurple-700"
+      >
+        Painted in Blue
+      </div>
+      <div
+        class="text-sm leading-5 text-customPurple-300"
+      >
+        Soul Canvas
+      </div>
+    </div>
+    <div
+      class="text-sm leading-5 text-customPurple-300"
+    >
+      5:55
+    </div>
+  </button>
+</div>
+`;
+
+exports[`Playlist renders correctly when not current 1`] = `
+<div>
+  <button
+    class="flex w-full justify-between items-center mb-1 cursor-pointer bg-transparent hover:bg-customPurple-50 transition duration-150 ease-in-out rounded-md p-1"
+  >
+    <div
+      class="text-left"
+    >
+      <div
+        class="font-medium  text-customPurple-700"
+      >
+        Tidal Drift
+      </div>
+      <div
+        class="text-sm leading-5 text-customPurple-300"
+      >
+        Echoes of the Sea
+      </div>
+    </div>
+    <div
+      class="text-sm leading-5 text-customPurple-300"
+    >
+      8:02
+    </div>
+  </button>
+</div>
+`;

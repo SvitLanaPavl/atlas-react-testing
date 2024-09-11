@@ -1,0 +1,254 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`MusicPlayer component > renders correctly 1`] = `
+<div>
+  <div
+    class="bg-customPurple-25 mx-auto flex h-full w-full max-w-5xl flex-col overflow-hidden rounded-lg shadow-lg md:flex-row"
+  >
+    <div
+      class="p-6 md:w-1/2 flex flex-col justify-between animate-pulse"
+    >
+      <div
+        class="relative mb-6 aspect-square bg-customPurple-50 rounded-md"
+      />
+       
+      <div
+        class="mb-4 h-6 bg-customPurple-50 rounded w-3/4"
+      />
+       
+      <div
+        class="mb-2 h-4 bg-customPurple-50 rounded w-1/2"
+      />
+       
+      <div
+        class="flex items-center justify-between mb-5"
+      >
+        <div
+          class="h-10 w-10 bg-customPurple-50 rounded"
+        />
+         
+        <div
+          class="h-10 w-10 bg-customPurple-50 rounded"
+        />
+        <div
+          class="h-10 w-10 bg-customPurple-50 rounded"
+        />
+        <div
+          class="h-10 w-10 bg-customPurple-50 rounded"
+        />
+        <div
+          class="h-10 w-10 bg-customPurple-50 rounded"
+        />
+      </div>
+      <div
+        class="h-2 w-full bg-customPurple-50 rounded"
+      />
+       
+    </div>
+    <div
+      class="space-y-4 p-6 md:w-1/2"
+    >
+      <div
+        class="w-full animate-pulse flex justify-between"
+      >
+        <div
+          class="flex-grow mr-4"
+        >
+          <div
+            class="h-4 bg-customPurple-50 rounded w-3/4"
+          />
+           
+          <div
+            class="h-3 bg-customPurple-50 rounded w-1/2 mt-2"
+          />
+           
+        </div>
+        <div
+          class="h-8 w-8 bg-customPurple-50 rounded flex-shrink-0"
+        />
+         
+      </div>
+      <div
+        class="w-full animate-pulse flex justify-between"
+      >
+        <div
+          class="flex-grow mr-4"
+        >
+          <div
+            class="h-4 bg-customPurple-50 rounded w-3/4"
+          />
+           
+          <div
+            class="h-3 bg-customPurple-50 rounded w-1/2 mt-2"
+          />
+           
+        </div>
+        <div
+          class="h-8 w-8 bg-customPurple-50 rounded flex-shrink-0"
+        />
+         
+      </div>
+      <div
+        class="w-full animate-pulse flex justify-between"
+      >
+        <div
+          class="flex-grow mr-4"
+        >
+          <div
+            class="h-4 bg-customPurple-50 rounded w-3/4"
+          />
+           
+          <div
+            class="h-3 bg-customPurple-50 rounded w-1/2 mt-2"
+          />
+           
+        </div>
+        <div
+          class="h-8 w-8 bg-customPurple-50 rounded flex-shrink-0"
+        />
+         
+      </div>
+      <div
+        class="w-full animate-pulse flex justify-between"
+      >
+        <div
+          class="flex-grow mr-4"
+        >
+          <div
+            class="h-4 bg-customPurple-50 rounded w-3/4"
+          />
+           
+          <div
+            class="h-3 bg-customPurple-50 rounded w-1/2 mt-2"
+          />
+           
+        </div>
+        <div
+          class="h-8 w-8 bg-customPurple-50 rounded flex-shrink-0"
+        />
+         
+      </div>
+      <div
+        class="w-full animate-pulse flex justify-between"
+      >
+        <div
+          class="flex-grow mr-4"
+        >
+          <div
+            class="h-4 bg-customPurple-50 rounded w-3/4"
+          />
+           
+          <div
+            class="h-3 bg-customPurple-50 rounded w-1/2 mt-2"
+          />
+           
+        </div>
+        <div
+          class="h-8 w-8 bg-customPurple-50 rounded flex-shrink-0"
+        />
+         
+      </div>
+      <div
+        class="w-full animate-pulse flex justify-between"
+      >
+        <div
+          class="flex-grow mr-4"
+        >
+          <div
+            class="h-4 bg-customPurple-50 rounded w-3/4"
+          />
+           
+          <div
+            class="h-3 bg-customPurple-50 rounded w-1/2 mt-2"
+          />
+           
+        </div>
+        <div
+          class="h-8 w-8 bg-customPurple-50 rounded flex-shrink-0"
+        />
+         
+      </div>
+      <div
+        class="w-full animate-pulse flex justify-between"
+      >
+        <div
+          class="flex-grow mr-4"
+        >
+          <div
+            class="h-4 bg-customPurple-50 rounded w-3/4"
+          />
+           
+          <div
+            class="h-3 bg-customPurple-50 rounded w-1/2 mt-2"
+          />
+           
+        </div>
+        <div
+          class="h-8 w-8 bg-customPurple-50 rounded flex-shrink-0"
+        />
+         
+      </div>
+      <div
+        class="w-full animate-pulse flex justify-between"
+      >
+        <div
+          class="flex-grow mr-4"
+        >
+          <div
+            class="h-4 bg-customPurple-50 rounded w-3/4"
+          />
+           
+          <div
+            class="h-3 bg-customPurple-50 rounded w-1/2 mt-2"
+          />
+           
+        </div>
+        <div
+          class="h-8 w-8 bg-customPurple-50 rounded flex-shrink-0"
+        />
+         
+      </div>
+      <div
+        class="w-full animate-pulse flex justify-between"
+      >
+        <div
+          class="flex-grow mr-4"
+        >
+          <div
+            class="h-4 bg-customPurple-50 rounded w-3/4"
+          />
+           
+          <div
+            class="h-3 bg-customPurple-50 rounded w-1/2 mt-2"
+          />
+           
+        </div>
+        <div
+          class="h-8 w-8 bg-customPurple-50 rounded flex-shrink-0"
+        />
+         
+      </div>
+      <div
+        class="w-full animate-pulse flex justify-between"
+      >
+        <div
+          class="flex-grow mr-4"
+        >
+          <div
+            class="h-4 bg-customPurple-50 rounded w-3/4"
+          />
+           
+          <div
+            class="h-3 bg-customPurple-50 rounded w-1/2 mt-2"
+          />
+           
+        </div>
+        <div
+          class="h-8 w-8 bg-customPurple-50 rounded flex-shrink-0"
+        />
+         
+      </div>
+    </div>
+  </div>
+</div>
+`;

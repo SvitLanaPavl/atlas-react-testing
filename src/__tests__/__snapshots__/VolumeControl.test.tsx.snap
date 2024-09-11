@@ -1,0 +1,84 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Volume toggles mute 1`] = `
+<div>
+  <div
+    class="flex items-center space-x-2"
+  >
+    <button>
+      <img
+        alt="Volume disabled icon"
+        class="w-5 h-5 block align-middle"
+        src="/src/assets/volume_dis.svg"
+      />
+    </button>
+    <div
+      class="flex items-center w-full"
+    >
+      <input
+        class="w-full h-2 rounded-lg appearance-none cursor-pointer focus:outline-none volume-slider muted"
+        max="100"
+        min="0"
+        style="background: rgb(244, 235, 255);"
+        type="range"
+        value="0"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Volume toggles mute 2`] = `
+<div>
+  <div
+    class="flex items-center space-x-2"
+  >
+    <button>
+      <img
+        alt="Volume icon"
+        class="w-5 h-5 block align-middle"
+        src="/src/assets/volume.svg"
+      />
+    </button>
+    <div
+      class="flex items-center w-full"
+    >
+      <input
+        class="w-full h-2 rounded-lg appearance-none cursor-pointer focus:outline-none volume-slider "
+        max="100"
+        min="0"
+        style="background: rgb(244, 235, 255);"
+        type="range"
+        value="50"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`VolumeControls correctly renders at default 1`] = `
+<div>
+  <div
+    class="flex items-center space-x-2"
+  >
+    <button>
+      <img
+        alt="Volume icon"
+        class="w-5 h-5 block align-middle"
+        src="/src/assets/volume.svg"
+      />
+    </button>
+    <div
+      class="flex items-center w-full"
+    >
+      <input
+        class="w-full h-2 rounded-lg appearance-none cursor-pointer focus:outline-none volume-slider "
+        max="100"
+        min="0"
+        type="range"
+        value="50"
+      />
+    </div>
+  </div>
+</div>
+`;
