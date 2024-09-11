@@ -28,13 +28,16 @@ const PlayControls: React.FC<PlayControlsProps> = ({
   return (
     <div className='mb-5 flex items-center justify-between'>
       {/* Speed Button */}
-      <button 
+      <button
+      aria-label={`Set play speed to ${speed}x`}
+      type="button" 
       className='inline-flex h-10 w-10 items-center justify-center whitespace-nowrap rounded-md text-sm leading-5 font-medium transition-transform duration-200 ease-in-out transform hover:scale-110' 
       onClick={handleSpeedChange}>
         <span className='text-lg text-customPurple-500'>{speed}x</span>
       </button>
       {/* Prev Button */}
-      <button 
+      <button
+      type="button" 
       className={`inline-flex h-10 w-10 items-center justify-center rounded-md text-sm leading-5 font-medium transition-transform duration-200 ease-in-out transform hover:scale-110 ${isFirstSong ? 'text-customPurple-100' : 'text-customPurple-500'}`}
       onClick={onPrev}
       disabled={isFirstSong}
@@ -44,23 +47,26 @@ const PlayControls: React.FC<PlayControlsProps> = ({
         </svg>
       </button>
       {/* Play/Pause Button */}
-      <button 
+      <button
+      type="button"
+      aria-label={isPlaying ? 'Pause' : 'Play'}
       className="inline-flex h-10 w-10 items-center justify-center whitespace-nowrap rounded-md text-sm leading-5 font-medium transition-transform duration-200 ease-in-out transform hover:scale-105 outline outline-1.5 outline-customPurple-500 focus:outline" 
       onClick={togglePlay}
       >
       { isPlaying ? (
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-customPurple-500">
+        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-customPurple-500">
         <path fillRule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z" clipRule="evenodd" />
       </svg>
        ) : (
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor" className="w-6 h-6 text-customPurple-500">
+        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor" className="w-6 h-6 text-customPurple-500">
           <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 5.25v13.5m-7.5-13.5v13.5" />
         </svg>
        ) }
         
       </button>
        {/* Next Button */}
-      <button 
+      <button
+      type="button"
       className={`inline-flex h-10 w-10 items-center justify-center rounded-md text-sm leading-5 font-medium transition-transform duration-200 ease-in-out transform hover:scale-110 ${isLastSong ? 'text-customPurple-100' : 'text-customPurple-500'}`}
       onClick={onNext}
       disabled={isLastSong}
@@ -70,11 +76,14 @@ const PlayControls: React.FC<PlayControlsProps> = ({
         </svg>
       </button>
       {/* Shuffle Button */}
-      <button 
+      <button
+      type="button"
+      aria-label="Shuffle"
+      data-testid="shuffle-button"
       className={`inline-flex h-10 w-10 items-center justify-center whitespace-nowrap rounded-md text-sm leading-5 font-medium transition-transform duration-200 ease-in-out transform hover:scale-110 ${isShuffle ? 'text-green-500' : 'text-customPurple-500'}`}
       onClick={onShuffleToggle}
       >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
           <path fillRule="evenodd" d="M12 5.25c1.213 0 2.415.046 3.605.135a3.256 3.256 0 0 1 3.01 3.01c.044.583.077 1.17.1 1.759L17.03 8.47a.75.75 0 1 0-1.06 1.06l3 3a.75.75 0 0 0 1.06 0l3-3a.75.75 0 0 0-1.06-1.06l-1.752 1.751c-.023-.65-.06-1.296-.108-1.939a4.756 4.756 0 0 0-4.392-4.392 49.422 49.422 0 0 0-7.436 0A4.756 4.756 0 0 0 3.89 8.282c-.017.224-.033.447-.046.672a.75.75 0 1 0 1.497.092c.013-.217.028-.434.044-.651a3.256 3.256 0 0 1 3.01-3.01c1.19-.09 2.392-.135 3.605-.135Zm-6.97 6.22a.75.75 0 0 0-1.06 0l-3 3a.75.75 0 1 0 1.06 1.06l1.752-1.751c.023.65.06 1.296.108 1.939a4.756 4.756 0 0 0 4.392 4.392 49.413 49.413 0 0 0 7.436 0 4.756 4.756 0 0 0 4.392-4.392c.017-.223.032-.447.046-.672a.75.75 0 0 0-1.497-.092c-.013.217-.028.434-.044.651a3.256 3.256 0 0 1-3.01 3.01 47.953 47.953 0 0 1-7.21 0 3.256 3.256 0 0 1-3.01-3.01 47.759 47.759 0 0 1-.1-1.759L6.97 15.53a.75.75 0 0 0 1.06-1.06l-3-3Z" clipRule="evenodd" />
         </svg>
       </button>
