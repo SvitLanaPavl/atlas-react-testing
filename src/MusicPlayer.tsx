@@ -50,7 +50,7 @@ const MusicPlayer: React.FC = () => {
     <div className="bg-customPurple-25 mx-auto flex h-full w-full max-w-5xl flex-col overflow-hidden rounded-lg shadow-lg md:flex-row">
       {/* Left side - Currently Playing */}
       {loading ? (
-        <CurrentLoadingSkeleton data-testid="loading-skeleton-current" />
+        <CurrentLoadingSkeleton />
       ) : (
         playlist.length > 0 && (
           <CurrentlyPlaying
@@ -67,7 +67,7 @@ const MusicPlayer: React.FC = () => {
 
       {/* Right side - Playlist */}
       {loading ? (
-        <PlaylistLoadingSkeleton data-testid="loading-skeleton-playlist" />
+        <PlaylistLoadingSkeleton />
       ) : (
         playlist.length > 0 && (
           <Playlist

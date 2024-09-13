@@ -35,13 +35,13 @@ const VolumeControls: React.FC = () => {
   return (
     <div className="flex items-center space-x-2">
       {/* Volume Icon */}
-      <button onClick={toggleMute}>
+      <button onClick={toggleMute} aria-label={isMuted || volumeValue === 0 ? 'Unmute' : 'Mute'}>
         <img
           src={isMuted || volumeValue === 0 ? volume_disabled : volume}
           className="w-5 h-5 block align-middle"
           alt={isMuted || volumeValue === 0 ? 'Volume disabled icon' : 'Volume icon'}
         />
-      </button>
+</button>
 
       <div className="flex items-center w-full">
         {/* Volume Slider */}

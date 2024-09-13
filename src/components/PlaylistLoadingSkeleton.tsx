@@ -2,7 +2,7 @@ import React from 'react';
 
 const PlaylistLoadingSkeleton: React.FC = () => {
   return (
-    <div className="space-y-4 p-6 md:w-1/2">
+    <div className="space-y-4 p-6 md:w-1/2" data-testid="loading-skeleton-playlist">
       {/* Repeat this block for several skeleton items */}
       {Array(10).fill(null).map((_, index) => (
         <div key={index} className="w-full animate-pulse flex justify-between">

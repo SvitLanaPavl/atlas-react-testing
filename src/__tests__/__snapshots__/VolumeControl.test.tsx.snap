@@ -5,7 +5,9 @@ exports[`Volume toggles mute 1`] = `
   <div
     class="flex items-center space-x-2"
   >
-    <button>
+    <button
+      aria-label="Unmute"
+    >
       <img
         alt="Volume disabled icon"
         class="w-5 h-5 block align-middle"
@@ -33,7 +35,9 @@ exports[`Volume toggles mute 2`] = `
   <div
     class="flex items-center space-x-2"
   >
-    <button>
+    <button
+      aria-label="Mute"
+    >
       <img
         alt="Volume icon"
         class="w-5 h-5 block align-middle"
@@ -61,7 +65,9 @@ exports[`VolumeControls correctly renders at default 1`] = `
   <div
     class="flex items-center space-x-2"
   >
-    <button>
+    <button
+      aria-label="Mute"
+    >
       <img
         alt="Volume icon"
         class="w-5 h-5 block align-middle"

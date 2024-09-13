@@ -13,6 +13,24 @@ describe('MusicPlayer Component', () => {
     vi.clearAllMocks();
   });
 
+  it('shows loading skeleton when playlist data is loading', async () => {
+    // Mock the hook to return a loading state
+    (usePlaylistData as ReturnType<typeof vi.fn>).mockReturnValue({
+      data: [],
+      loading: true, // Simulate loading
+    });
+
+    console.log(usePlaylistData());
+
+    render(<MusicPlayer />);
+
+    // Assert that loading skeletons are shown
+    await waitFor(() => {
+      expect(screen.getByTestId('loading-skeleton-current')).toBeInTheDocument();
+      expect(screen.getByTestId('loading-skeleton-playlist')).toBeInTheDocument();
+    });
+  });
+
   it('renders the playlist when data is loaded', async () => {
     // Mock the hook to return a loaded playlist
     (usePlaylistData as ReturnType<typeof vi.fn>).mockReturnValue({

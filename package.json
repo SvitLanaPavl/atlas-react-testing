@@ -8,23 +8,27 @@
     "build": "vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "coverage": "vitest run --coverage --coverage.provider v8",
+    "clean": "rm -rf dist && rm -rf node_modules/.cache && tsc --build --clean"
   },
   "dependencies": {
     "jsdom": "^25.0.0",
+    "punycode": "^2.3.1",
     "react": "18.3.1",
     "react-dom": "18.3.1"
   },
   "devDependencies": {
+    "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.5.0",
     "@testing-library/react": "^16.0.1",
-    "@types/node": "22.5.4",
+    "@types/node": "^22.5.4",
     "@types/react": "18.2.66",
     "@types/react-dom": "18.2.22",
     "@typescript-eslint/eslint-plugin": "7.2.0",
     "@typescript-eslint/parser": "7.2.0",
     "@vitejs/plugin-react": "4.3.1",
-    "@vitest/coverage-v8": "^2.1.0",
+    "@vitest/coverage-v8": "^2.1.1",
     "autoprefixer": "10.4.20",
     "eslint": "8.57.0",
     "eslint-plugin-react-hooks": "4.6.0",
@@ -37,6 +41,6 @@
     "typescript": "5.5.4",
     "vite": "^5.4.5",
     "vite-plugin-svgr": "4.2.0",
-    "vitest": "^2.1.0"
+    "vitest": "^2.1.1"
   }
 }
