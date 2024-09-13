@@ -25,7 +25,7 @@ const CurrentlyPlaying: React.FC<CurrentlyPlayingProps> = ({
   song, onPrev, onNext, isFirstSong, isLastSong, onShuffleToggle, isShuffle
 }) => {
   return (
-    <div className='p-6 md:w-1/2'>
+    <div className='p-6 md:w-1/2' data-testid="currently-playing-section">
       <CoverArt cover={song.cover} />
       <SongTitle title={song.title} artist={song.artist} />
       <PlayControls 

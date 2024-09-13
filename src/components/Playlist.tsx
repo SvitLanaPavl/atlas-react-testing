@@ -15,7 +15,7 @@ interface PlaylistProps {
 
 const Playlist: React.FC<PlaylistProps> = ({ playlist, currentSongIndex, onSongSelect }) => {
   return (
-    <div className='border-t border-l-0 p-6 md:w-1/2 md:border-l md:border-customPurple-50 md:border-t-0'>
+    <div className='border-t border-l-0 p-6 md:w-1/2 md:border-l md:border-customPurple-50 md:border-t-0' data-testid="playlist-section">
       <h3 className='mb-4 text-lg text-customPurple-600 leading-7 font-semibold'>Playlist</h3>
       {playlist.map((song, index) => (
         <PlayListItem
